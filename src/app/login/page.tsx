@@ -15,7 +15,10 @@ import { LogIn, Mail, Lock } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { auth } from '@/lib/firebase'; // Import Firebase auth
 import { GoogleAuthProvider, signInWithPopup, User } from 'firebase/auth'; // Import GoogleAuthProvider and signInWithPopup
+<<<<<<< HEAD
 import { useRouter } from 'next/navigation'; // Import useRouter
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 
 const loginFormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -26,7 +29,10 @@ type LoginFormValues = z.infer<typeof loginFormSchema>;
 
 export default function LoginPage() {
   const { toast } = useToast();
+<<<<<<< HEAD
   const router = useRouter(); // Initialize router
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
   const { control, handleSubmit, formState: { errors, isSubmitting: isEmailSubmitting } } = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
@@ -45,7 +51,11 @@ export default function LoginPage() {
       description: "In a real app, you would now be logged in with email/password!",
       variant: "default",
     });
+<<<<<<< HEAD
     router.push('/'); // Redirect to homepage
+=======
+    // Reset form or redirect user
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
   };
 
   const handleGoogleSignIn = async () => {
@@ -60,7 +70,11 @@ export default function LoginPage() {
         description: `Welcome, ${user.displayName || user.email}! (Simulated)`,
         variant: "default",
       });
+<<<<<<< HEAD
       router.push('/'); // Redirect to homepage
+=======
+      // In a real app, redirect or update auth state
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
     } catch (error: any) {
       console.error("Google Sign-In error:", error);
       toast({
@@ -74,8 +88,13 @@ export default function LoginPage() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="w-full h-full flex justify-center items-center p-4">
       <Card className="w-full max-w-xl shadow-xl">
+=======
+    <div className="flex justify-center items-center min-h-[calc(100vh-10rem)] py-12">
+      <Card className="w-full max-w-md shadow-xl">
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
         <CardHeader className="text-center">
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
             <LogIn className="h-10 w-10 text-primary" />

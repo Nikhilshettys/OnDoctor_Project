@@ -15,7 +15,10 @@ import { UserPlus, Mail, Lock, User as UserIcon } from 'lucide-react'; // Rename
 import { Separator } from '@/components/ui/separator';
 import { auth } from '@/lib/firebase'; // Import Firebase auth
 import { GoogleAuthProvider, signInWithPopup, User } from 'firebase/auth'; // Import GoogleAuthProvider and signInWithPopup
+<<<<<<< HEAD
 import { useRouter } from 'next/navigation'; // Import useRouter
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 
 
 const signupFormSchema = z.object({
@@ -32,7 +35,10 @@ type SignupFormValues = z.infer<typeof signupFormSchema>;
 
 export default function SignupPage() {
   const { toast } = useToast();
+<<<<<<< HEAD
   const router = useRouter(); // Initialize router
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
   const { control, handleSubmit, formState: { errors, isSubmitting: isEmailSubmitting } } = useForm<SignupFormValues>({
     resolver: zodResolver(signupFormSchema),
     defaultValues: {
@@ -54,7 +60,11 @@ export default function SignupPage() {
       description: "Your account has been created with email/password (simulated).",
       variant: "default",
     });
+<<<<<<< HEAD
     router.push('/'); // Redirect to homepage
+=======
+    // Reset form or redirect user
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
   };
 
   const handleGoogleSignUp = async () => {
@@ -69,7 +79,12 @@ export default function SignupPage() {
         description: `Welcome, ${user.displayName || user.email}! Your account is ready (Simulated).`,
         variant: "default",
       });
+<<<<<<< HEAD
       router.push('/'); // Redirect to homepage
+=======
+      // In a real app, you might create a user document in your database here
+      // then redirect or update auth state
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
     } catch (error: any) {
       console.error("Google Sign-Up error:", error);
       toast({
@@ -84,8 +99,13 @@ export default function SignupPage() {
 
 
   return (
+<<<<<<< HEAD
     <div className="w-full h-full flex justify-center items-center p-4">
       <Card className="w-full max-w-2xl shadow-xl">
+=======
+    <div className="flex justify-center items-center min-h-[calc(100vh-10rem)] py-12">
+      <Card className="w-full max-w-md shadow-xl">
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
         <CardHeader className="text-center">
           <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
             <UserPlus className="h-10 w-10 text-primary" />

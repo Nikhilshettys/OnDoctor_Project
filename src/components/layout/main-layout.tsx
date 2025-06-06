@@ -43,13 +43,17 @@ const authLinks = [
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const pathname = usePathname();
+<<<<<<< HEAD
   const isAuthPage = pathname === '/login' || pathname === '/signup';
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 
   return (
     <SidebarProvider>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex flex-1">
+<<<<<<< HEAD
           {!isAuthPage && (
             <Sidebar side="left" collapsible="icon" className="border-r bg-card">
               <SidebarHeader className="p-2 flex flex-col justify-center items-center pt-8 group-data-[collapsible=icon]:py-2">
@@ -127,6 +131,79 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 ? "flex flex-1 flex-col items-center justify-center" 
                 : "flex-grow py-8"
               )}>
+=======
+          <Sidebar side="left" collapsible="icon" className="border-r bg-card">
+            <SidebarHeader className="p-2 flex flex-col justify-center items-center pt-8 group-data-[collapsible=icon]:py-2">
+              {/* Logo and text removed */}
+            </SidebarHeader>
+            <SidebarContent>
+              <SidebarMenu className="p-2 space-y-1">
+                {navLinks.map((link) => (
+                  <SidebarMenuItem key={link.href}>
+                    <Link href={link.href} passHref legacyBehavior>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={{ children: link.label, side: "right", align: "center" }}
+                        className={cn("group-data-[collapsible=icon]:justify-center", pathname === link.href && "bg-primary/10 text-primary")}
+                        isActive={pathname === link.href}
+                      >
+                        <a>
+                          {link.icon}
+                          <span className="group-data-[collapsible=icon]:hidden">{link.label}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </Link>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+              <Separator className="my-2" />
+               <SidebarMenu className="p-2 space-y-1">
+                {utilityLinks.map((link) => (
+                  <SidebarMenuItem key={link.href}>
+                    <Link href={link.href} passHref legacyBehavior>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={{ children: link.label, side: "right", align: "center" }}
+                        className={cn("group-data-[collapsible=icon]:justify-center", pathname === link.href && "bg-primary/10 text-primary")}
+                        isActive={pathname === link.href}
+                      >
+                        <a>
+                          {link.icon}
+                          <span className="group-data-[collapsible=icon]:hidden">{link.label}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </Link>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+              <Separator className="my-2" />
+              <SidebarMenu className="p-2 space-y-1">
+                {authLinks.map((link) => (
+                   <SidebarMenuItem key={link.href}>
+                    <Link href={link.href} passHref legacyBehavior>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={{ children: link.label, side: "right", align: "center" }}
+                        className={cn("group-data-[collapsible=icon]:justify-center", pathname === link.href && "bg-primary/10 text-primary")}
+                        isActive={pathname === link.href}
+                      >
+                        <a>
+                          {link.icon}
+                          <span className="group-data-[collapsible=icon]:hidden">{link.label}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </Link>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarContent>
+            <SidebarFooter className="p-2 flex group-data-[collapsible=icon]:justify-center">
+               {/* ThemeToggleDropdown removed */}
+            </SidebarFooter>
+          </Sidebar>
+          <div className="flex-1">
+            <main className="flex-grow py-8"> {/* MODIFIED: Removed container, mx-auto, px-4, flex, items-center */}
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
                 {children}
             </main>
           </div>

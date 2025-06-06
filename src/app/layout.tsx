@@ -19,9 +19,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'OnDoctor',
   description: 'Schedule video consultations with ease.',
+<<<<<<< HEAD
   icons: {
     icon: '/favicon.ico', // Points to public/favicon.ico
   },
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 };
 
 export default function RootLayout({

@@ -5,10 +5,16 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+<<<<<<< HEAD
 import { User, Edit3, Shield, CreditCard, LogOut, Mail, Calendar as CalendarIcon, ListChecks, AlarmClock, Utensils, HeartPulse, Headset, TrendingUp } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation'; // Import useRouter
+=======
+import { User, Edit3, Shield, CreditCard, LogOut, Mail, Calendar as CalendarIcon, ListChecks, AlarmClock, Utensils, HeartPulse, Headset, TrendingUp } from 'lucide-react'; // Added Headset, TrendingUp
+import { Separator } from '@/components/ui/separator';
+import { useToast } from '@/hooks/use-toast';
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 
 // Mock user data - replace with actual data when auth is implemented
 const mockUser = {
@@ -20,7 +26,10 @@ const mockUser = {
 
 export default function AccountPage() {
   const { toast } = useToast();
+<<<<<<< HEAD
   const router = useRouter(); // Initialize router
+=======
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
 
   const handleLogout = () => {
     // Simulate logout
@@ -29,7 +38,11 @@ export default function AccountPage() {
       description: "You have been successfully logged out (simulated).",
       variant: "default",
     });
+<<<<<<< HEAD
     router.push('/login'); // Redirect to login page
+=======
+    // In a real app, redirect to login or home page
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
   };
 
   return (

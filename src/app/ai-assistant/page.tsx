@@ -79,6 +79,7 @@ export default function AiAssistantPage() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="container mx-auto px-4">
       <div className="w-full max-w-3xl mx-auto py-8">
         <Card className="shadow-xl flex flex-col h-[70vh] max-h-[700px] min-h-[400px]">
@@ -156,6 +157,83 @@ export default function AiAssistantPage() {
           </CardFooter>
         </Card>
       </div>
+=======
+    <div className="flex flex-col w-full max-w-3xl h-[calc(100vh-12rem)]">
+      <Card className="shadow-xl flex-grow flex flex-col">
+        <CardHeader>
+          <div className="flex items-center space-x-3">
+            <MessageCircle className="h-8 w-8 text-primary" />
+            <CardTitle className="text-3xl text-primary">AI Assistant</CardTitle>
+          </div>
+          <CardDescription>Chat with our helpful AI assistant (powered by Google AI via Genkit).</CardDescription>
+        </CardHeader>
+        <CardContent className="flex-grow overflow-hidden p-0">
+          <ScrollArea className="h-full p-4" ref={scrollAreaRef}>
+            <div className="space-y-4">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={cn(
+                    "flex items-end space-x-2",
+                    msg.role === 'user' ? "justify-end" : "justify-start"
+                  )}
+                >
+                  {msg.role === 'assistant' && (
+                    <div className="p-2 bg-primary/10 rounded-full w-fit">
+                      <Bot className="h-6 w-6 text-primary" />
+                    </div>
+                  )}
+                  <div
+                    className={cn(
+                      "p-3 rounded-lg max-w-[70%]",
+                      msg.role === 'user'
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground"
+                    )}
+                  >
+                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    <p className="text-xs opacity-70 mt-1 text-right">
+                      {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </p>
+                  </div>
+                   {msg.role === 'user' && (
+                    <div className="p-2 bg-accent/20 rounded-full w-fit">
+                       <User className="h-6 w-6 text-accent" />
+                    </div>
+                  )}
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex items-center space-x-2 justify-start">
+                   <div className="p-2 bg-primary/10 rounded-full w-fit">
+                    <Bot className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="p-3 rounded-lg bg-muted text-muted-foreground">
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+        </CardContent>
+        <CardFooter className="p-4 border-t">
+          <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
+            <Input
+              type="text"
+              placeholder="Type your message..."
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              className="flex-grow"
+              disabled={isLoading}
+            />
+            <Button type="submit" size="icon" disabled={isLoading || !inputValue.trim()} className="bg-accent hover:bg-accent/90">
+              {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
+              <span className="sr-only">Send</span>
+            </Button>
+          </form>
+        </CardFooter>
+      </Card>
+>>>>>>> 8114eb7daf1f0662f29907bfaf501e9cbb413a74
     </div>
   );
 }
